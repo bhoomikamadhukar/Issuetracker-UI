@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "c38a97bb536902be0bfc";
+/******/ 	var hotCurrentHash = "616ceeb6ab35a5a2ced7";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -3372,8 +3372,9 @@ async function graphQLFetch(query, variables = {}, showError = null, cookie = nu
     return result.data;
   } catch (e) {
     if (showError) showError(`Error in sending data to server: ${e.message}`);
-    return null;
   }
+
+  return null;
 }
 
 /***/ }),
