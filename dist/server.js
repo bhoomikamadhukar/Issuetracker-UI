@@ -22,7 +22,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "40e2b73479cfbd4aef36";
+/******/ 	var hotCurrentHash = "c38a97bb536902be0bfc";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -1139,10 +1139,12 @@ const apiProxyTarget = process.env.API_PROXY_TARGET;
 
 if (apiProxyTarget) {
   app.use('/graphql', http_proxy_middleware__WEBPACK_IMPORTED_MODULE_2___default()({
-    target: apiProxyTarget
+    target: apiProxyTarget,
+    changeOrigin: true
   }));
   app.use('/auth', http_proxy_middleware__WEBPACK_IMPORTED_MODULE_2___default()({
-    target: apiProxyTarget
+    target: apiProxyTarget,
+    changeOrigin: true
   }));
 }
 
@@ -2845,7 +2847,7 @@ function Footer() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
     className: "text-center"
   }, "Full source code available at this", ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    href: "https://github.com/vasansr/pro-mern-stack-2"
+    href: "https://github.com/bhoomikamadhukar/MernStack"
   }, "GitHub repository")));
 }
 
