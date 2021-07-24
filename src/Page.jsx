@@ -6,17 +6,17 @@ import {
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-import Contents from './Contents.jsx';
 import IssueAddNavItem from './IssueAddNavItem.jsx';
-import SignInNavItem from './SignInNavItem.jsx';
+import Contents from './Contents.jsx';
 import Search from './Search.jsx';
 import UserContext from './UserContext.js';
 import graphQLFetch from './graphQLFetch.js';
 import store from './store.js';
+import SignInNavItem from './SignInNavItem.jsx';
 
 function NavBar({ user, onUserChange }) {
   return (
-    <Navbar fluid>
+    <Navbar>
       <Navbar.Header>
         <Navbar.Brand>Issue Tracker</Navbar.Brand>
       </Navbar.Header>
@@ -60,7 +60,7 @@ function Footer() {
       <p className="text-center">
         Full source code available at this
         {' '}
-        <a href="https://github.com/bhoomikamadhukar/MernStack">
+        <a href="https://github.com/tonymullen/ProMERNStackBook">
           GitHub repository
         </a>
       </p>
@@ -82,11 +82,19 @@ export default class Page extends React.Component {
     const user = store.userData ? store.userData.user : null;
     delete store.userData;
     this.state = { user };
-
     this.onUserChange = this.onUserChange.bind(this);
   }
 
   async componentDidMount() {
+    // const apiEndpoint = window.ENV.UI_AUTH_ENDPOINT;
+    // const response = await fetch(`${apiEndpoint}/user`, {
+    //   method: 'POST',
+    //   credentials: 'include',
+    // });
+    // const body = await response.text();
+    // const result = JSON.parse(body);
+    // const { signedIn, givenName } = result;
+    // this.setState({ user: { signedIn, givenName } });
     const { user } = this.state;
     if (user == null) {
       const data = await Page.fetchData();
@@ -101,7 +109,6 @@ export default class Page extends React.Component {
   render() {
     const { user } = this.state;
     if (user == null) return null;
-
     return (
       <div>
         <NavBar user={user} onUserChange={this.onUserChange} />
